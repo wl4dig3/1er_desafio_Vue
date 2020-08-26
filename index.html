@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Practicas</title>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{saludar}}</h1>
+			<ul>
+				<li v-for="tarea of tareas">
+					 {{tarea}} 
+					<!-- <span v-if="fruta.cantidad <=10">**ojo: Pedir mas frutas</span> -->
+				</li>
+			</ul>
+
+			<input v-model="tarea" type="text" />
+			<button @click="agregarTarea">Agregar tarea</button>
+		</div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script>
+			const saludo = new Vue({
+				el: '#app',
+				data: {
+					saludar: 'que codigo tan fino',
+					tareas: [],
+					tarea: '',
+
+				},
+				methods: { 
+                    agregarTarea() {
+                        this.tareas.push(this.tarea)
+                        this.tarea= ''
+                    }
+                 },
+			});
+		</script>
+
+		<!-- <script src="primerVue.js"></script> -->
+	</body>
+</html>
